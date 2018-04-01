@@ -7,4 +7,8 @@
 //
 
 import Foundation
-class Question
+
+struct Question {
+    var title = ""
+    var isCorrect = false
+}

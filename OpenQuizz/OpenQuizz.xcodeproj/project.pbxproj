@@ -13,6 +13,9 @@
 		BF009BAE207004FF009CA3AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF009BAD207004FF009CA3AF /* Assets.xcassets */; };
 		BF009BB1207004FF009CA3AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF009BAF207004FF009CA3AF /* LaunchScreen.storyboard */; };
 		BFC4954920711C2E009C0C1C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4954820711C2E009C0C1C /* Question.swift */; };
+		BFC4954B20712937009C0C1C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4954A20712937009C0C1C /* Game.swift */; };
+		BFC4954D20712A03009C0C1C /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4954C20712A03009C0C1C /* QuestionManager.swift */; };
+		BFC4954F20712CF7009C0C1C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC4954E20712CF7009C0C1C /* Default-568h@2x.png */; };
 		BFC7A5B220703CE1003092F5 /* Balham.otf in Resources */ = {isa = PBXBuildFile; fileRef = BFC7A5B120703CE1003092F5 /* Balham.otf */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		BF009BB0207004FF009CA3AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF009BB2207004FF009CA3AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFC4954820711C2E009C0C1C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Question.swift; path = OpenQuizz/Model/Question.swift; sourceTree = SOURCE_ROOT; };
+		BFC4954A20712937009C0C1C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BFC4954C20712A03009C0C1C /* QuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
+		BFC4954E20712CF7009C0C1C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BFC7A5B120703CE1003092F5 /* Balham.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Balham.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +48,7 @@
 		BF009B9A207004FE009CA3AF = {
 			isa = PBXGroup;
 			children = (
+				BFC4954E20712CF7009C0C1C /* Default-568h@2x.png */,
 				BF009BA5207004FE009CA3AF /* OpenQuizz */,
 				BF009BA4207004FE009CA3AF /* Products */,
 			);
@@ -70,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				BFC4954820711C2E009C0C1C /* Question.swift */,
+				BFC4954A20712937009C0C1C /* Game.swift */,
+				BFC4954C20712A03009C0C1C /* QuestionManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +172,7 @@
 				BF009BB1207004FF009CA3AF /* LaunchScreen.storyboard in Resources */,
 				BF009BAE207004FF009CA3AF /* Assets.xcassets in Resources */,
 				BFC7A5B220703CE1003092F5 /* Balham.otf in Resources */,
+				BFC4954F20712CF7009C0C1C /* Default-568h@2x.png in Resources */,
 				BF009BAC207004FE009CA3AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +187,8 @@
 				BFC4954920711C2E009C0C1C /* Question.swift in Sources */,
 				BF009BA9207004FE009CA3AF /* ViewController.swift in Sources */,
 				BF009BA7207004FE009CA3AF /* AppDelegate.swift in Sources */,
+				BFC4954D20712A03009C0C1C /* QuestionManager.swift in Sources */,
+				BFC4954B20712937009C0C1C /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2HNPJY5D46;
-				INFOPLIST_FILE = OpenQuizz/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OpenQuizz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,7 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2HNPJY5D46;
-				INFOPLIST_FILE = OpenQuizz/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OpenQuizz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
