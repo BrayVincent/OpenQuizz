@@ -45,6 +45,10 @@ class ViewController: UIViewController {
         
         questionView.title = "Loading..."
         questionView.style = .standard
+        self.questionView.alpha = 0
+        UIView.animate(withDuration: 2, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [.transitionCrossDissolve], animations: {
+            self.questionView.alpha = 1
+        }, completion: nil)
         
         scoreLabel.text = "0 / 10"
         
@@ -97,16 +101,40 @@ class ViewController: UIViewController {
         
         scoreLabel.text = "\(game.score) / 10"
         
+        let screenWidth = UIScreen.main.bounds.width
+        var translationTransform: CGAffineTransform
+        if questionView.style == .correct {
+            translationTransform = CGAffineTransform(translationX: screenWidth, y: 0)
+        } else {
+            translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
+        }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.questionView.transform = translationTransform
+            self.questionView.alpha = 0
+        }) { (success) in
+            if success {
+                self.showQuestionView()
+                self.questionView.alpha = 1
+            }
+        }
+    }
+    
+    private func showQuestionView() {
         questionView.transform = .identity
+        questionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         questionView.style = .standard
         
         switch game.state {
         case .ongoing:
-             questionView.title = game.currentQuestion.title
+            questionView.title = game.currentQuestion.title
         case .over:
             questionView.title = "Game Over"
         }
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.questionView.transform = .identity
+        }, completion: nil)
     }
-    
 }
 
