@@ -15,9 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionView: QuestionView!
     
+    var game = Game()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let name = Notification.Name(rawValue: "QuestionsLoaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: name, object: nil)
+        
+        startNewGame()
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragQuestionView(_:)))
+        questionView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    @objc func questionsLoaded() {
+        activityIndicator.isHidden = true
+        newGameButton.isHidden = false
+        
+        questionView.title = game.currentQuestion.title
     }
     
     @IBAction func didTapNewGameButton() {
@@ -32,7 +47,31 @@ class ViewController: UIViewController {
         questionView.style = .standard
         
         scoreLabel.text = "0 / 10"
+        
+        game.refresh()
     }
 
+    @objc func dragQuestionView(_ sender: UIPanGestureRecognizer) {
+        if game.state == .ongoing {
+            switch sender.state {
+            case .began, .changed:
+                transformaQuestionViewWith(gesture: sender)
+            case .cancelled, .ended:
+                answerQuestion()
+            default:
+                break
+            }
+        }
+        
+    }
+    
+    private func transformaQuestionViewWith(gesture: UIPanGestureRecognizer) {
+        
+    }
+    
+    private func answerQuestion() {
+        
+    }
+    
 }
 
