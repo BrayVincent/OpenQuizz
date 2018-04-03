@@ -15,11 +15,24 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var questionView: QuestionView!
+    
+    @IBAction func didTapNewGameButton() {
+        startNewGame()
     }
-
+    
+    private func startNewGame() {
+        activityIndicator.isHidden = false
+        newGameButton.isHidden = true
+        
+        questionView.title = "Loading..."
+        questionView.style = .standard
+        
+        scoreLabel.text = "0 / 10"
+    }
 
 }
 
