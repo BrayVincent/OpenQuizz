@@ -45,7 +45,12 @@ class ViewController: UIViewController {
         
         questionView.title = "Loading..."
         questionView.style = .standard
+        // Remise à zero des couleurs d'origine
+        questionView.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        scoreLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         self.questionView.alpha = 0
+        // Ajout animation transition au chargement d'une nouvelle partie
         UIView.animate(withDuration: 2, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [.transitionCrossDissolve], animations: {
             self.questionView.alpha = 1
         }, completion: nil)
@@ -109,6 +114,7 @@ class ViewController: UIViewController {
             translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
         }
         
+        // modification de la fonction afin d'avoir un effet de transition lors de la levée du doigt
         UIView.animate(withDuration: 0.5, animations: {
             self.questionView.transform = translationTransform
             self.questionView.alpha = 0
@@ -130,6 +136,9 @@ class ViewController: UIViewController {
             questionView.title = game.currentQuestion.title
         case .over:
             questionView.title = "Game Over"
+            questionView.textColor = #colorLiteral(red: 0.8941176471, green: 0.5490196078, blue: 0.5843137255, alpha: 1)
+            // Change couleur police pour signaler la fin de partie
+            scoreLabel.textColor = #colorLiteral(red: 0.8941176471, green: 0.5490196078, blue: 0.5843137255, alpha: 1)
         }
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {

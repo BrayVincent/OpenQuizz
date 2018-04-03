@@ -40,6 +40,13 @@ class QuestionView: UIView {
         }
     }
     
+    //possibilité de changer couleur de texte
+    var textColor: UIColor! {
+        didSet {
+            label.textColor = textColor
+        }
+    }
+            
     var title = "" {
         didSet {
             label.text = title
