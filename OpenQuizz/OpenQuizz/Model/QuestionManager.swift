@@ -9,7 +9,7 @@
 import UIKit
 
 class QuestionManager {
-    private let url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
+    private var url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
     
     static let shared = QuestionManager()
     private init() {}
@@ -55,6 +55,29 @@ class QuestionManager {
         }
         return Question()
     }
+    
+    //Choisir la difficulté de la partie
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBAction func selectDifficult(_ sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            self.url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
+        //textLabel.text = "First Segment Selected";
+        case 1:
+        //difficulty Easy
+            self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean")!
+        case 2:
+        //difficulty Medium
+            self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=medium&type=boolean")!
+        case 3:
+        //difficulty Hard
+            self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean")!
+        default:
+            break
+        }
+    }
+
 }
 
 

@@ -50,9 +50,12 @@ class ViewController: UIViewController {
         scoreLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         self.questionView.alpha = 0
+        self.scoreLabel.alpha = 0
         // Ajout animation transition au chargement d'une nouvelle partie
+        // questionView et scoreLabel avec effet d'apparition
         UIView.animate(withDuration: 2, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [.transitionCrossDissolve], animations: {
             self.questionView.alpha = 1
+            self.scoreLabel.alpha = 1
         }, completion: nil)
         
         scoreLabel.text = "0 / 10"
@@ -145,5 +148,6 @@ class ViewController: UIViewController {
             self.questionView.transform = .identity
         }, completion: nil)
     }
+    
 }
 
