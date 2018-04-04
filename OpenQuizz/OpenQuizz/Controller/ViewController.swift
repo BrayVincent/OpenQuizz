@@ -41,7 +41,19 @@ class ViewController: UIViewController {
         startNewGame()
     }
     
-    @IBAction func didSelectedDifficult() {
+    @IBAction func didSelectedDifficult(_ sender: AnyObject) {
+        switch selectedDifficult.selectedSegmentIndex {
+        case 0:
+            QuestionManager.Difficult.anyDifficult
+        case 1:
+            QuestionManager.Difficult.easy
+        case 2:
+            QuestionManager.Difficult.medium
+        case 3:
+            QuestionManager.Difficult.hard
+        default:
+            break
+        }
         
     }
     
