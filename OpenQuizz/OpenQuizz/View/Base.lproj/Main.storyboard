@@ -79,7 +79,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.75294117650000003" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="didSelectedDifficult:" destination="BYZ-38-t0r" eventType="valueChanged" id="nhv-xX-jxR"/>
+                                    <action selector="segmentedControlValueChangedWithSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="Srv-jX-Dfp"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -91,7 +91,7 @@
                         <outlet property="newGameButton" destination="fNN-4B-2SM" id="5vW-NK-JbT"/>
                         <outlet property="questionView" destination="4Kg-Yw-AfX" id="DIb-cl-qJe"/>
                         <outlet property="scoreLabel" destination="HDx-gJ-63R" id="cqD-h5-PzV"/>
-                        <outlet property="selectedDifficult" destination="Jpd-yN-3TI" id="IRl-8E-APj"/>
+                        <outlet property="segmentedControl" destination="Jpd-yN-3TI" id="P54-Ai-0gX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionView: QuestionView!
-    @IBOutlet weak var selectedDifficult: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var game = Game()
     
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let name = Notification.Name(rawValue: "QuestionsLoaded")
         NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: name, object: nil)
+        segmentedControl.addTarget(self, action: Selector(("segmentedControlValueChanged:")), for:.valueChanged)
         
         startNewGame()
         
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
     @objc func questionsLoaded() {
         activityIndicator.isHidden = true
         newGameButton.isHidden = false
-        selectedDifficult.isHidden = true
+        segmentedControl.isHidden = true
         
         questionView.title = game.currentQuestion.title
     }
@@ -41,16 +42,16 @@ class ViewController: UIViewController {
         startNewGame()
     }
     
-    @IBAction func didSelectedDifficult(_ sender: AnyObject) {
-        switch selectedDifficult.selectedSegmentIndex {
+    @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
+        switch segment.selectedSegmentIndex {
         case 0:
-            QuestionManager.Difficult.anyDifficult
+            QuestionManager.shared.selectedDifficulty = .any
         case 1:
-            QuestionManager.Difficult.easy
+            QuestionManager.shared.selectedDifficulty = .easy
         case 2:
-            QuestionManager.Difficult.medium
+            QuestionManager.shared.selectedDifficulty = .medium
         case 3:
-            QuestionManager.Difficult.hard
+            QuestionManager.shared.selectedDifficulty = .hard
         default:
             break
         }
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
     private func startNewGame() {
         activityIndicator.isHidden = false
         newGameButton.isHidden = true
-        selectedDifficult.isHidden = false
+        segmentedControl.isHidden = false
         
         questionView.title = "Loading..."
         questionView.style = .standard

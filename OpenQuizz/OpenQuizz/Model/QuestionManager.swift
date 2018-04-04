@@ -9,7 +9,29 @@
 import UIKit
 
 class QuestionManager {
-    private var url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
+    private var url: URL {
+        switch selectedDifficulty {
+        case .any:
+            return URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
+        //difficulty Any
+        case .easy:
+            //difficulty Easy
+            return URL(string: "https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean")!
+        case .medium:
+            //difficulty Medium
+            return URL(string: "https://opentdb.com/api.php?amount=10&difficulty=medium&type=boolean")!
+        case .hard:
+            //difficulty Hard
+            return URL(string: "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean")!
+    
+        }
+    }
+    
+    enum Difficulty {
+        case any, easy, medium, hard
+    }
+    
+    var selectedDifficulty: Difficulty = .any
     
     static let shared = QuestionManager()
     private init() {}
@@ -56,34 +78,6 @@ class QuestionManager {
         return Question()
     }
     
-    //Choisir la difficulté de la partie
-    
-    enum Difficult {
-        case anyDifficult, easy, medium, hard
-    }
-    
-    var difficult: Difficult = .anyDifficult {
-        didSet {
-            setDifficult(difficult)
-        }
-    }
-    
-    func setDifficult(_ difficult: Difficult) {
-        switch difficult {
-        case .anyDifficult:
-            self.url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
-        //textLabel.text = "First Segment Selected";
-        case .easy:
-        //difficulty Easy
-            self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean")!
-        case .medium:
-        //difficulty Medium
-            self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=medium&type=boolean")!
-        case .hard:
-        //difficulty Hard
-            self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean")!
-        }
-    }
 
 }
 
