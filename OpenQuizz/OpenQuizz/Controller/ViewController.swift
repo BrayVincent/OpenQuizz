@@ -22,10 +22,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let name = Notification.Name(rawValue: "QuestionsLoaded")
         NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: name, object: nil)
-        segmentedControl.addTarget(self, action: Selector(("segmentedControlValueChanged:")), for:.valueChanged)
+        segmentedControl.addTarget(self, action: Selector(("segmentedControlValueChanged:")), for: .touchUpOutside)
         
         startNewGame()
         
+            
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragQuestionView(_:)))
         questionView.addGestureRecognizer(panGestureRecognizer)
     }
@@ -42,8 +43,10 @@ class ViewController: UIViewController {
         startNewGame()
     }
     
+    
+    //selection de la difficulté
     @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
-        switch segment.selectedSegmentIndex {
+         switch segment.selectedSegmentIndex {
         case 0:
             QuestionManager.shared.selectedDifficulty = .any
         case 1:
@@ -56,6 +59,15 @@ class ViewController: UIViewController {
             break
         }
         
+        game.refresh()
+        
+        questionView.title = "Loading..."
+        questionView.style = .standard
+        // Remise à zero des couleurs d'origine
+        
+        questionView.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        scoreLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
     }
     
     
@@ -63,12 +75,6 @@ class ViewController: UIViewController {
         activityIndicator.isHidden = false
         newGameButton.isHidden = true
         segmentedControl.isHidden = false
-        
-        questionView.title = "Loading..."
-        questionView.style = .standard
-        // Remise à zero des couleurs d'origine
-        questionView.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        scoreLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         self.questionView.alpha = 0
         self.scoreLabel.alpha = 0
@@ -81,7 +87,10 @@ class ViewController: UIViewController {
         
         scoreLabel.text = "0 / 10"
         
-        game.refresh()
+        segmentedControl.addTarget(self, action: Selector(("segmentedControlValueChanged:")), for: .touchUpOutside)
+        questionView.title = "Select Difficulty !"
+        questionView.textColor = #colorLiteral(red: 0.8156862745, green: 0.9176470588, blue: 0.6588235294, alpha: 1)
+       
     }
 
     @objc func dragQuestionView(_ sender: UIPanGestureRecognizer) {

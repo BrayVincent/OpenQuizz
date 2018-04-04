@@ -68,8 +68,8 @@
                                     <outlet property="label" destination="jo7-04-qpb" id="mln-rT-wtu"/>
                                 </connections>
                             </view>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jpd-yN-3TI">
-                                <rect key="frame" x="65" y="319" width="245" height="29"/>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jpd-yN-3TI">
+                                <rect key="frame" x="65" y="371" width="245" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Any"/>
@@ -79,7 +79,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.75294117650000003" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="segmentedControlValueChangedWithSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="Srv-jX-Dfp"/>
+                                    <action selector="segmentedControlValueChangedWithSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="i8I-JG-rd6"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
