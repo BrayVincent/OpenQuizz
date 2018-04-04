@@ -68,7 +68,7 @@ class QuestionManager {
         }
     }
     
-    private func setDifficult(_ difficult: Difficult) {
+    func setDifficult(_ difficult: Difficult) {
         switch difficult {
         case .anyDifficult:
             self.url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!

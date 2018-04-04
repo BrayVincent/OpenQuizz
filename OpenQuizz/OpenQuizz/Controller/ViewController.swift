@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionView: QuestionView!
+    @IBOutlet weak var selectedDifficult: UISegmentedControl!
     
     var game = Game()
     
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
     @objc func questionsLoaded() {
         activityIndicator.isHidden = true
         newGameButton.isHidden = false
+        selectedDifficult.isHidden = true
         
         questionView.title = game.currentQuestion.title
     }
@@ -39,9 +41,15 @@ class ViewController: UIViewController {
         startNewGame()
     }
     
+    @IBAction func didSelectedDifficult() {
+        
+    }
+    
+    
     private func startNewGame() {
         activityIndicator.isHidden = false
         newGameButton.isHidden = true
+        selectedDifficult.isHidden = false
         
         questionView.title = "Loading..."
         questionView.style = .standard

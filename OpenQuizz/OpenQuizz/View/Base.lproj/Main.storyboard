@@ -78,6 +78,9 @@
                                     <segment title="Hard"/>
                                 </segments>
                                 <color key="tintColor" red="0.75294117650000003" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="didSelectedDifficult:" destination="BYZ-38-t0r" eventType="valueChanged" id="nhv-xX-jxR"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.41960784309999999" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,6 +91,7 @@
                         <outlet property="newGameButton" destination="fNN-4B-2SM" id="5vW-NK-JbT"/>
                         <outlet property="questionView" destination="4Kg-Yw-AfX" id="DIb-cl-qJe"/>
                         <outlet property="scoreLabel" destination="HDx-gJ-63R" id="cqD-h5-PzV"/>
+                        <outlet property="selectedDifficult" destination="Jpd-yN-3TI" id="IRl-8E-APj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
