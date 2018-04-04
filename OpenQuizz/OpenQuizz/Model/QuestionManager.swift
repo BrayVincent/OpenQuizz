@@ -58,23 +58,30 @@ class QuestionManager {
     
     //Choisir la difficulté de la partie
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBAction func selectDifficult(_ sender: AnyObject) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
+    enum Difficult {
+        case anyDifficult, easy, medium, hard
+    }
+    
+    var difficult: Difficult = .anyDifficult {
+        didSet {
+            setDifficult(difficult)
+        }
+    }
+    
+    private func setDifficult(_ difficult: Difficult) {
+        switch difficult {
+        case .anyDifficult:
             self.url = URL(string: "https://opentdb.com/api.php?amount=10&type=boolean")!
         //textLabel.text = "First Segment Selected";
-        case 1:
+        case .easy:
         //difficulty Easy
             self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean")!
-        case 2:
+        case .medium:
         //difficulty Medium
             self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=medium&type=boolean")!
-        case 3:
+        case .hard:
         //difficulty Hard
             self.url = URL(string: "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean")!
-        default:
-            break
         }
     }
 

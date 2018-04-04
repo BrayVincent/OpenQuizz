@@ -46,21 +46,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jpd-yN-3TI">
-                                <rect key="frame" x="65" y="303" width="245" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Any"/>
-                                    <segment title="Easy"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Hard"/>
-                                </segments>
-                                <color key="tintColor" red="0.75294117650000003" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="difficultyChoice:" destination="BYZ-38-t0r" eventType="valueChanged" id="XtU-TP-tRh"/>
-                                    <action selector="selectDifficult:" destination="BYZ-38-t0r" eventType="valueChanged" id="J8p-Sg-Pvj"/>
-                                </connections>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Kg-Yw-AfX" customClass="QuestionView" customModule="OpenQuizz" customModuleProvider="target">
                                 <rect key="frame" x="65" y="50" width="245" height="245"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,19 +68,26 @@
                                     <outlet property="label" destination="jo7-04-qpb" id="mln-rT-wtu"/>
                                 </connections>
                             </view>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jpd-yN-3TI">
+                                <rect key="frame" x="65" y="319" width="245" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Any"/>
+                                    <segment title="Easy"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Hard"/>
+                                </segments>
+                                <color key="tintColor" red="0.75294117650000003" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.41960784309999999" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outlet property="segmentedControl" destination="Jpd-yN-3TI" id="31A-gn-TvL"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="1O5-UJ-gM4" id="zju-Tn-i6T"/>
                         <outlet property="newGameButton" destination="fNN-4B-2SM" id="5vW-NK-JbT"/>
                         <outlet property="questionView" destination="4Kg-Yw-AfX" id="DIb-cl-qJe"/>
                         <outlet property="scoreLabel" destination="HDx-gJ-63R" id="cqD-h5-PzV"/>
-                        <outletCollection property="difficultyChoice" destination="Jpd-yN-3TI" collectionClass="NSMutableArray" id="JSG-UG-xRa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
